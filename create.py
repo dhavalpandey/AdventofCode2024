@@ -3,7 +3,7 @@ import os
 month = datetime.datetime.now().month
 
 if __name__ == "__main__":
-    if month == 11:
+    if month == 12:
         os.system("source venv/bin/activate")
         day = datetime.datetime.now().day
         folder_name = f"Day {day}"
