@@ -1,13 +1,10 @@
 import sys
 
 def main(file):
-    solution = ""
     with open(file) as f:
         lines = f.readlines()
     for line in lines:
-        pass
-    
-    print(solution)
+        text = line.strip()
 
 
 if __name__ == "__main__":
