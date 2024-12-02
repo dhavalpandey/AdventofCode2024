@@ -1,5 +1,3 @@
-import sys
-
 def main(file):
     with open(file) as f:
         lines = f.readlines()
@@ -8,13 +6,7 @@ def main(file):
 
 
 if __name__ == "__main__":
-    mode = sys.argv[1]
-    inputer_file = ""
-    if mode == "test":
-        input_file = "test.txt"
-    elif mode == "input" or mode == "i":
-        input_file = "input.txt"
-    else:
-        input_file = "test.txt"
-    
+    import sys
+    mode = sys.argv[1] if len(sys.argv) > 1 else "test"
+    input_file = "test.txt" if mode == "test" else "input.txt"
     main(input_file)
