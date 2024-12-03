@@ -1,16 +1,19 @@
 import datetime
 import os
+from get_input import get_input 
 month = datetime.datetime.now().month
+
 
 if __name__ == "__main__":
     if month == 12:
         os.system("source venv/bin/activate")
         day = datetime.datetime.now().day
+        year = datetime.datetime.now().year
         folder_name = f"Day {day}"
         file_names = [f"Day{day}_part_1.py", f"Day{day}_part_2.py", f"test.txt", f"input.txt"]
-        input_url = f"https://adventofcode.com/2024/day/{day}/input"
-        problem_url = f"https://adventofcode.com/2024/day/{day}"
-
+        input_url = f"https://adventofcode.com/{year}/day/{day}/input"
+        problem_url = f"https://adventofcode.com/{year}/day/{day}"
+        
         os.mkdir(folder_name)
         for file_name in file_names:
             open(f"{folder_name}/{file_name}", "w").close()
@@ -22,3 +25,5 @@ if __name__ == "__main__":
 
         with open(f"{folder_name}/Day{day}_part_2.py", "w") as part_2_file:
             part_2_file.write(template_content)
+
+        get_input(day, year, f"{folder_name}/input.txt")
