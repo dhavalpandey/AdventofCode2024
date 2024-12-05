@@ -1,25 +1,33 @@
-def is_mas_sequence(chars):
-    return chars == ['M', 'A', 'S'] or chars == ['S', 'A', 'M']
+def solve(grid):
+    found = 0
+    for row in range(1, len(grid)-1):
+        for col in range(1, len(grid[row])-1):
+            if grid[row][col] == "A":
+                tl = grid[row-1][col-1]
+                tr = grid[row-1][col+1]
+                bl = grid[row+1][col-1]
+                br = grid[row+1][col+1]
+                cells = [tl, tr, bl, br]
 
-def count_xmas(grid):
-    count = 0
-    rows = len(grid)
-    cols = len(grid[0]) if rows > 0 else 0
+                countM = cells.count("M")
+                countS = cells.count("S")
+                if countM == 2 and countS == 2:
+                    if tl != br and tr != bl:
+                        found += 1
+    print(found)
 
-    for i in range(1, rows - 1):
-        for j in range(1, cols - 1):
-            # Diagonal from top-left to bottom-right
-            diag1 = [grid[i-1][j-1], grid[i][j], grid[i+1][j+1]]
-            # Diagonal from top-right to bottom-left
-            diag2 = [grid[i-1][j+1], grid[i][j], grid[i+1][j-1]]
-
-            if is_mas_sequence(diag1) and is_mas_sequence(diag2):
-                count += 1
-    return count
 
 def main(file):
-    grid = [line.strip() for line in open(file)]
-    print(count_xmas(grid))
+    grid = []
+    with open(file) as f:
+        lines = f.readlines()
+    for line in lines:
+        text = line.strip().split("\n")
+        row = list(text[0])
+        grid.append(row)
+    
+    solve(grid)
+
 
 if __name__ == "__main__":
     import sys
