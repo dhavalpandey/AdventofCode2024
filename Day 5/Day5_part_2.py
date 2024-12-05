@@ -24,11 +24,9 @@ def solve(update, constraints):
     in_degree = defaultdict(int)
     unique_elements = set(update)
 
-    # Initialize in-degree of all elements to 0
     for elem in unique_elements:
         in_degree[elem] = 0
 
-    # Build the graph and compute in-degrees
     for elem in unique_elements:
         forbidden_elements = constraints.get(elem, [])
         for forbidden in forbidden_elements:
@@ -36,7 +34,6 @@ def solve(update, constraints):
                 graph[elem].append(forbidden)
                 in_degree[forbidden] += 1
 
-    # Initialize queue with elements having in-degree 0
     queue = deque([elem for elem in unique_elements if in_degree[elem] == 0])
     result = []
 
