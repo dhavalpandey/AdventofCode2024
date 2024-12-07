@@ -11,7 +11,7 @@ def solve(grid, start_pos):
     for o_r in range(R):
         for o_c in range(C):
             r, c = sr, sc
-            d = 0  # 0=up, 1=right, 2=down, 3=left
+            d = 0 
             SEEN = set()
             SEEN_RC = set()
             while True:
