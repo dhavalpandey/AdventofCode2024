@@ -1,6 +1,5 @@
 import sys
 import pyperclip as pc
-from functools import lru_cache
 sys.setrecursionlimit(10**6)
 infinity = float("inf")
 
