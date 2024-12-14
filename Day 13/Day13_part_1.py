@@ -3,9 +3,12 @@ import pyperclip as pc
 sys.setrecursionlimit(10**6)
 infinity = float("inf")
 
-def printc(ans):
-    print(ans)
-    pc.copy(ans)
+original_print = print
+def printc(*args, **kwargs):
+    output = ' '.join(str(arg) for arg in args)
+    original_print(output, **kwargs)
+    pc.copy(output)
+print = printc
 
 def greedy(a, b, prize):
     # a cost = 3, b cost = 1 - optimise cost
