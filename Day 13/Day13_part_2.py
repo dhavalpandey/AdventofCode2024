@@ -17,6 +17,7 @@ def greedy(a, b, prize):
 
     # K = (targetX - (bx)M) / ax
     # ((targetX - (bx)M) / ax)ay + (by)M = targetY
+
     target = prize.split(",")
     targetX = int(target[0][2:]) + 10000000000000
     targetY = int(target[1][2:]) + 10000000000000
