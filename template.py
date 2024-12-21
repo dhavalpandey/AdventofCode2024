@@ -1,5 +1,6 @@
 import sys
 import pyperclip as pc
+from functools import cache, lru_cache
 sys.setrecursionlimit(10**6)
 infinity = float("inf")
 original_print = print
@@ -8,6 +9,8 @@ def printc(*args, **kwargs):
     original_print(output, **kwargs)
     pc.copy(output)
 print = printc
+
+CELLS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
 def main(file):
     with open(file) as f:
