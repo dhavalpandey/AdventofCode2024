@@ -1,13 +1,14 @@
 import datetime
 import os
 from get_input import get_input 
+import sys
 month = datetime.datetime.now().month
 
 
 if __name__ == "__main__":
     if month == 12:
         os.system("source venv/bin/activate")
-        day = datetime.datetime.now().day
+        day = int(sys.argv[1]) if len(sys.argv) > 1 else datetime.datetime.now().day
         year = datetime.datetime.now().year
         folder_name = f"Day {day}"
         file_names = [f"Day{day}_part_1.py", f"Day{day}_part_2.py", f"test.txt", f"input.txt"]

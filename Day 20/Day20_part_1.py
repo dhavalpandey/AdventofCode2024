@@ -108,8 +108,9 @@ def main(file):
                 path_n.append((c[0]+cell[0], c[1]+cell[1]))
         skip_from, skip_to = find_first_and_last(path_n, original)
         skip_from_index = original.index(skip_from)+1
-        skip_to_index = original.index(skip_to)-1
-        diff = skip_to_index - skip_from_index
+        skip_to_index = original.index(skip_to)
+        new_path = original[:skip_from_index] + [c] + original[skip_to_index:]
+        diff = len(original) - len(new_path)
         if diff >= 100:
             count += 1
 

@@ -1,7 +1,5 @@
 import sys
 import pyperclip as pc
-import re
-from collections import defaultdict, deque
 from tqdm import tqdm
 
 sys.setrecursionlimit(10**6)
