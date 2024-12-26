@@ -14,8 +14,6 @@ WIDTH = 101
 HEIGHT = 103
 
 def calc_path(pos, v):
-    # return cord index 0 is i of grid (y axis)
-    # return cord index 1 is j of grid (x axis)
     x, y = pos
     for i in range(100):
         new_x = x + v[0]
@@ -54,8 +52,6 @@ def quadrant_generator():
 
     br_max = HEIGHT-1, WIDTH-1
     br_min = ((HEIGHT-1)//2)+1, ((WIDTH-1)//2)+1
-    # index 0 is i of grid (y axis)
-    # index 1 is j of grid (x axis)
     return (tl_min, tl_max), (tr_min, tr_max), (bl_min, bl_max), (br_min, br_max)
 
 def main(file):

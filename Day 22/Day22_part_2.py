@@ -64,7 +64,6 @@ def main(file):
 
     if not SCORE:
         print(0)
-        sys.exit()
 
     max_bananas = max(SCORE.values())
     best_sequence = [seq for seq, bananas in SCORE.items() if bananas == max_bananas]
